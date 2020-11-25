@@ -1,0 +1,14 @@
+{   "IntroScreen":
+    {"lang":"hi",
+    "welcome":"Evento में आपका स्वागत है!",
+    "Quots":"क्या आप सीमा के बिना एक पूरे नए जीवन का आनंद लेने के लिए \nतैयार हैं? चलो चलते हैं!",
+    "googleSign":"Google साइन इन",
+    "register":"रजिस्टर करें",
+
+     "first_term_string":"लॉग इन या पंजीकरण करके, आप हमारी",
+    "second_term_string":" सेवा की शर्तों  ",
+    "third_term_string":" और ",
+    "forth_term_string":" गोपनीयता नीति से सहमत हैं"}
+
+}
+    

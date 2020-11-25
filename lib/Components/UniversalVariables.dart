@@ -8,7 +8,15 @@ class UniversalVariables {
   static const Color tealcolor = Colors.teal;
   static const Color pinkcolor = Color(0xffF8E0E3);
   static const Color lightyellowcolor = Color(0xffFBF8D3);
+  static const Color unselectedcolor = Color(0xffF0EFF4);
+  static const Color lightgreycolor = Color(0xffBBBBBB);
+  static const Color redcolor = Colors.red;
+  static const Color searchbarcolor = Color(0xffF1F7FE);
+  static const Color drawerbgcolor = Color(0xffFF272D34);
+  static final Color separatorColor = Color(0xffDCDCDC);
 
+  static const String noImageAvailable =
+      "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg";
   static const List<Color> localizationlistcolor = [
     Color(0xff3689AD),
     Color(0xff40A600),

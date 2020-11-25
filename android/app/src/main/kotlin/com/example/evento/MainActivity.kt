@@ -1,4 +1,4 @@
-package com.example.evento
+package com.technocrat.evento
 
 import io.flutter.embedding.android.FlutterActivity
 

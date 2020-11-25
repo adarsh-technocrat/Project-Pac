@@ -1,0 +1,6 @@
+{
+    "git.ignoreLimitWarning": true,
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": true,
+
+}

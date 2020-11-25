@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "306702964209",
+    "firebase_url": "https://evento-a5c3d.firebaseio.com",
+    "project_id": "evento-a5c3d",
+    "storage_bucket": "evento-a5c3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306702964209:android:0a1c447a883564d12f2050",
+        "android_client_info": {
+          "package_name": "com.technocrat.evento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306702964209-dosp73aj6261v6kdigim8qho2vubtf7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhkOOfmn6ITXqQ7NH639BdN4Hoj5i0VPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306702964209-dosp73aj6261v6kdigim8qho2vubtf7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+{
+    "welcome":"Welcome to Evento!",
+    "Quots":"Are you ready to enjoy a whole new life without\nlimits? Let's go!",
+    "googleSign":"Google Sign In",
+    "register":"Register",
+    "terms":{
+        "first_term_string":"By logging in or registering, you agree to our",
+        "second_term_string":" Terms of Service ",
+        "third_term_string":" and ",
+        "forth_term_string":" Privacy Policy"
+    }
+}

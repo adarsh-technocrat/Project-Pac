@@ -1,58 +1,62 @@
-import 'package:evento/Components/UniversalVariables.dart';
-import 'package:flutter/cupertino.dart';
-
+import 'package:evento/Components/cachedImage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import '../Components/UniversalVariables.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String img;
+  final Function searchtap;
+  final Function drawerTap;
+  final Function messageTap;
+
+  const CustomAppBar(
+      {Key key, this.img, this.searchtap, this.drawerTap, this.messageTap})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      decoration: BoxDecoration(
-        color: UniversalVariables.whiteColor,
-      ),
-      child: SafeArea(
-        child: Row(
-          children: [
-            RichText(
-              text: TextSpan(children: [
-                TextSpan(
-                    text: "Event",
-                    style: GoogleFonts.openSans(
-                        textStyle: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w800,
-                    ))),
-                TextSpan(
-                    text: "o",
-                    style: GoogleFonts.openSans(
-                        textStyle: TextStyle(
-                      color: UniversalVariables.greencolor,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w500,
-                    )))
-              ]),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: CircleAvatar(
-                radius: 15,
-                backgroundColor: UniversalVariables.localizationlistcolor[0],
-                child: Text("EN",
-                    style: TextStyle(
-                      color: UniversalVariables.whiteColor,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w900,
-                    )),
-              ),
-            ),
-          ],
+      child: AppBar(
+        elevation: 2,
+        leading: GestureDetector(
+          onTap: drawerTap,
+          child: CachedImage(
+            img,
+            radius: 25,
+            isRound: true,
+          ),
         ),
+        title: GestureDetector(
+          onTap: searchtap,
+          child: Container(
+            height: 40,
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                color: UniversalVariables.searchbarcolor,
+                borderRadius: BorderRadius.circular(15)),
+            child: Row(
+              children: [
+                Icon(FlutterIcons.search1_ant, size: 20),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Search",
+                  style: TextStyle(
+                    color: UniversalVariables.blackColor,
+                    fontSize: 15,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(FlutterIcons.notification_ant),
+            onPressed: messageTap,
+          )
+        ],
       ),
     );
   }
