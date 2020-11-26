@@ -1,3 +1,5 @@
+import 'package:evento/Screen/ProfileScreen/personaProfile.dart';
+import 'package:evento/Screen/ProfileScreen/projectUserTechnologyModel.dart';
 import 'package:flutter/material.dart';
 import 'package:evento/Components/cachedImage.dart';
 import 'package:evento/Database/FirebaseRepo.dart';
@@ -6,6 +8,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:evento/Components/UniversalVariables.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:async';
+
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -68,207 +72,359 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.vertical,
             itemBuilder: (context, int index) {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: Container(
-                  // height: height / 1.5,
-
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        // blurRadius: 0,
-                        offset: Offset(0, -1),
-                      ),
-                    ],
-                  ),
-
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Material(
-                        color: Colors.white,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: height / 12,
-                            width: width,
+                padding: const EdgeInsets.only(
+                  top: 5,
+                  left: 20,
+                  right: 10,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, left: 20, right: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Container(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                  "https://cdn.dribbble.com/users/1615584/screenshots/14359951/media/0271af1f45f38e8d38490dc499068ad8.jpg",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8, left: 8, right: 8, bottom: 8),
                             child: Row(
                               children: [
-                                CachedImage(
-                                  userModel?.profilePhoto == null
-                                      ? UniversalVariables.noImageAvailable
-                                      : userModel.profilePhoto,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      userModel?.name == null
-                                          ? "Loading.."
-                                          : userModel.name,
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                Text(
+                                  "Google",
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 20,
                                     ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "1d .",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Icon(
-                                          FlutterIcons.earth_ant,
-                                          size: 10,
-                                          color: Colors.grey,
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                  ),
                                 ),
                                 Expanded(
                                   child: Container(),
                                 ),
-                                IconButton(
-                                  icon: Icon(
-                                    Icons.arrow_drop_down,
-                                    size: 30,
-                                    color: Colors.grey,
-                                  ),
-                                  onPressed: () {},
-                                )
+                                // _offsetPopup(),
                               ],
                             ),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Material(
-                          color: Colors.white,
-                          child: InkWell(
-                            onTap: () {},
-                            child: RichText(
-                              text: TextSpan(
-                                children: [
-                                  secondhalf.isEmpty
-                                      ? TextSpan(
-                                          text: firsthalf,
-                                          style: TextStyle(
-                                            color:
-                                                UniversalVariables.blackColor,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        )
-                                      : TextSpan(
-                                          text: flag
-                                              ? (firsthalf + "....")
-                                              : (firsthalf + secondhalf + ".."),
-                                          style: TextStyle(
-                                            color:
-                                                UniversalVariables.blackColor,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                  TextSpan(
-                                    text: flag ? ("more") : " less",
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        setState(() {
-                                          flag = !flag;
-                                        });
-                                      },
-                                    style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8, right: 8, bottom: 5),
+                            child: Text(
+                              "These project will need a brand Identity where they will get recognise.",
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff878B9B),
+                                  fontSize: 16,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        child: Image.asset(
-                          "assets/images/img1.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Container(
-                        width: width,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: FlatButton(
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      FlutterIcons.like_evi,
-                                      size: 30,
-                                    ),
-                                    Text(
-                                      "55",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.grey,
+                          Container(
+                            height: 50,
+                            child: ListView.builder(
+                              physics: BouncingScrollPhysics(),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: projectTechnologyUsedModel.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 5),
+                                  child: Material(
+                                    color: projectTechnologyUsedModel[index]
+                                        .bgcolor,
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(8),
+                                      onTap: () {},
+                                      child: Container(
+                                        child: Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              projectTechnologyUsedModel[index]
+                                                  .text,
+                                              style: TextStyle(
+                                                color:
+                                                    projectTechnologyUsedModel[
+                                                            index]
+                                                        .textcolor,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Container(),
-                                    ),
-                                    IconButton(
-                                      icon: Icon(FlutterIcons.github_alt_faw),
-                                      onPressed: () {},
-                                    ),
-                                    IconButton(
-                                      icon: Icon(FlutterIcons.instagram_ant),
-                                      onPressed: () {},
-                                    ),
-                                  ],
-                                ),
-                                onPressed: () {},
-                              ),
+                                  ),
+                                );
+                              },
                             ),
-                            Expanded(
-                              child: FlatButton(
-                                child: Row(
-                                  children: [
-                                    IconButton(
-                                      icon: Icon(FlutterIcons.linkedin_box_mco),
-                                      onPressed: () {},
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 8, top: 8, right: 5, left: 5),
+                            child: Row(
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      FlutterIcons.paperclip_mco,
                                     ),
-                                    IconButton(
-                                      icon: Icon(FlutterIcons.facebook_box_mco),
-                                      onPressed: () {},
-                                    ),
-                                    Expanded(
-                                      child: Container(),
-                                    ),
-                                    Icon(
-                                      FlutterIcons.bookmark_border_mdi,
-                                      size: 25,
-                                    ),
-                                  ],
+                                    onPressed: () {}),
+                                Text(
+                                  "3",
+                                  style: TextStyle(),
                                 ),
-                                onPressed: () {},
-                              ),
-                            )
-                          ],
-                        ),
+                                IconButton(
+                                  icon: Icon(
+                                    FlutterIcons.comment_check_outline_mco,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                Expanded(child: Container()),
+                                Personaprofile(
+                                  images: [
+                                    "https://images.unsplash.com/photo-1458071103673-6a6e4c4a3413?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+                                    "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80",
+                                    "https://images.unsplash.com/photo-1470406852800-b97e5d92e2aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+                                  ],
+                                  totalCount: 10,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               );
+              // return Padding(
+              //   padding: const EdgeInsets.only(bottom: 5),
+              //   child: Container(
+              //     // height: height / 1.5,
+
+              //     decoration: BoxDecoration(
+              //       color: Colors.white,
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: Colors.black,
+              //           // blurRadius: 0,
+              //           offset: Offset(0, -1),
+              //         ),
+              //       ],
+              //     ),
+
+              //     child: Column(
+              //       mainAxisSize: MainAxisSize.min,
+              //       children: [
+              //         Material(
+              //           color: Colors.white,
+              //           child: InkWell(
+              //             onTap: () {},
+              //             child: Container(
+              //               height: height / 12,
+              //               width: width,
+              //               child: Row(
+              //                 children: [
+              //                   CachedImage(
+              //                     userModel?.profilePhoto == null
+              //                         ? UniversalVariables.noImageAvailable
+              //                         : userModel.profilePhoto,
+              //                   ),
+              //                   Column(
+              //                     mainAxisAlignment: MainAxisAlignment.center,
+              //                     crossAxisAlignment: CrossAxisAlignment.start,
+              //                     children: [
+              //                       Text(
+              //                         userModel?.name == null
+              //                             ? "Loading.."
+              //                             : userModel.name,
+              //                         style: TextStyle(
+              //                           fontSize: 15,
+              //                           fontWeight: FontWeight.bold,
+              //                         ),
+              //                       ),
+              //                       Row(
+              //                         children: [
+              //                           Text(
+              //                             "1d .",
+              //                             style: TextStyle(
+              //                               fontSize: 12,
+              //                               color: Colors.grey,
+              //                             ),
+              //                           ),
+              //                           SizedBox(
+              //                             width: 5,
+              //                           ),
+              //                           Icon(
+              //                             FlutterIcons.earth_ant,
+              //                             size: 10,
+              //                             color: Colors.grey,
+              //                           )
+              //                         ],
+              //                       )
+              //                     ],
+              //                   ),
+              //                   Expanded(
+              //                     child: Container(),
+              //                   ),
+              //                   IconButton(
+              //                     icon: Icon(
+              //                       Icons.arrow_drop_down,
+              //                       size: 30,
+              //                       color: Colors.grey,
+              //                     ),
+              //                     onPressed: () {},
+              //                   )
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         Padding(
+              //           padding: const EdgeInsets.all(8.0),
+              //           child: Material(
+              //             color: Colors.white,
+              //             child: InkWell(
+              //               onTap: () {},
+              //               child: RichText(
+              //                 text: TextSpan(
+              //                   children: [
+              //                     secondhalf.isEmpty
+              //                         ? TextSpan(
+              //                             text: firsthalf,
+              //                             style: TextStyle(
+              //                               color:
+              //                                   UniversalVariables.blackColor,
+              //                               fontWeight: FontWeight.w400,
+              //                             ),
+              //                           )
+              //                         : TextSpan(
+              //                             text: flag
+              //                                 ? (firsthalf + "....")
+              //                                 : (firsthalf + secondhalf + ".."),
+              //                             style: TextStyle(
+              //                               color:
+              //                                   UniversalVariables.blackColor,
+              //                               fontWeight: FontWeight.w400,
+              //                             ),
+              //                           ),
+              //                     TextSpan(
+              //                       text: flag ? ("more") : " less",
+              //                       recognizer: TapGestureRecognizer()
+              //                         ..onTap = () {
+              //                           setState(() {
+              //                             flag = !flag;
+              //                           });
+              //                         },
+              //                       style: TextStyle(
+              //                         color: Colors.blue,
+              //                         fontWeight: FontWeight.w400,
+              //                       ),
+              //                     )
+              //                   ],
+              //                 ),
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         Container(
+              //           child: Image.asset(
+              //             "assets/images/img1.jpg",
+              //             fit: BoxFit.cover,
+              //           ),
+              //         ),
+              //         Container(
+              //           width: width,
+              //           child: Row(
+              //             children: [
+              //               Expanded(
+              //                 child: FlatButton(
+              //                   child: Row(
+              //                     children: [
+              //                       Icon(
+              //                         FlutterIcons.like_evi,
+              //                         size: 30,
+              //                       ),
+              //                       Text(
+              //                         "55",
+              //                         style: TextStyle(
+              //                           fontSize: 12,
+              //                           color: Colors.grey,
+              //                         ),
+              //                       ),
+              //                       Expanded(
+              //                         child: Container(),
+              //                       ),
+              //                       IconButton(
+              //                         icon: Icon(FlutterIcons.github_alt_faw),
+              //                         onPressed: () {},
+              //                       ),
+              //                       IconButton(
+              //                         icon: Icon(FlutterIcons.instagram_ant),
+              //                         onPressed: () {},
+              //                       ),
+              //                     ],
+              //                   ),
+              //                   onPressed: () {},
+              //                 ),
+              //               ),
+              //               Expanded(
+              //                 child: FlatButton(
+              //                   child: Row(
+              //                     children: [
+              //                       IconButton(
+              //                         icon: Icon(FlutterIcons.linkedin_box_mco),
+              //                         onPressed: () {},
+              //                       ),
+              //                       IconButton(
+              //                         icon: Icon(FlutterIcons.facebook_box_mco),
+              //                         onPressed: () {},
+              //                       ),
+              //                       Expanded(
+              //                         child: Container(),
+              //                       ),
+              //                       Icon(
+              //                         FlutterIcons.bookmark_border_mdi,
+              //                         size: 25,
+              //                       ),
+              //                     ],
+              //                   ),
+              //                   onPressed: () {},
+              //                 ),
+              //               )
+              //             ],
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // );
             },
           ),
         ),

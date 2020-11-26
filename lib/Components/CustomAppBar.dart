@@ -1,16 +1,13 @@
-import 'package:evento/Components/cachedImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import '../Components/UniversalVariables.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String img;
   final Function searchtap;
   final Function drawerTap;
   final Function messageTap;
 
-  const CustomAppBar(
-      {Key key, this.img, this.searchtap, this.drawerTap, this.messageTap})
+  const CustomAppBar({Key key, this.searchtap, this.drawerTap, this.messageTap})
       : super(key: key);
 
   @override
@@ -18,13 +15,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       child: AppBar(
         elevation: 2,
-        leading: GestureDetector(
-          onTap: drawerTap,
-          child: CachedImage(
-            img,
-            radius: 25,
-            isRound: true,
-          ),
+        leading: IconButton(
+          icon: Image.asset("assets/images/menu.png"),
+          onPressed: drawerTap,
         ),
         title: GestureDetector(
           onTap: searchtap,

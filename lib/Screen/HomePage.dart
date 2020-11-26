@@ -1,5 +1,6 @@
 import 'package:evento/Components/customappBar.dart';
 import 'package:evento/Database/FirebaseRepo.dart';
+import 'package:evento/Screen/ProfileScreen/ProfileScreen.dart';
 import 'package:evento/Screen/ProjectScreen/projectScreen.dart';
 import 'package:evento/Screen/SettingScreen/settingScreen.dart';
 import 'package:evento/Screen/homeScreen/homeScreen.dart';
@@ -36,9 +37,10 @@ class _HomePageState extends State<HomePage> {
 
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    PostScreen(),
     ProjectScreen(),
+    PostScreen(),
     SettingScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,18 +49,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: SideDrawer(),
-      appBar: _currentindex == 2
-          ? null
-          : CustomAppBar(
-              img: _userDp != null
-                  ? "$_userDp"
-                  : UniversalVariables.noImageAvailable,
-              drawerTap: () {
-                _scaffoldKey.currentState.openDrawer();
-              },
-              searchtap: () {},
-              messageTap: () {},
-            ),
+      appBar: CustomAppBar(
+        drawerTap: () {
+          _scaffoldKey.currentState.openDrawer();
+        },
+        searchtap: () {},
+        messageTap: () {},
+      ),
       body: _widgetOptions.elementAt(_currentindex),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTapped,
@@ -73,20 +70,25 @@ class _HomePageState extends State<HomePage> {
               label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(
+                FlutterIcons.folder1_ant,
+              ),
+              label: "Projects"),
+          BottomNavigationBarItem(
+              icon: Icon(
                 FlutterIcons.add_box_mdi,
                 size: 30,
               ),
               label: "Post"),
           BottomNavigationBarItem(
               icon: Icon(
-                FlutterIcons.folder1_ant,
-              ),
-              label: "Projects"),
-          BottomNavigationBarItem(
-              icon: Icon(
                 FlutterIcons.setting_ant,
               ),
-              label: "settings"),
+              label: "Settings"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                FlutterIcons.profile_ant,
+              ),
+              label: "Profile"),
         ],
       ),
     );
