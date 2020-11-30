@@ -97,7 +97,7 @@ class ImageStack extends StatelessWidget {
                         color: backgroundColor),
                     child: Center(
                       child: Text(
-                        (totalCount - images.length).toString(),
+                        "+" + (totalCount - images.length).toString(),
                         textAlign: TextAlign.center,
                         style: extraCountTextStyle,
                       ),

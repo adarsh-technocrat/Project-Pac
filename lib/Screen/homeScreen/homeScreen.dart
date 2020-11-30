@@ -20,12 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
   FireBaseRepo firebaseRepo = FireBaseRepo();
   UserModel userModel;
 
-  bool flag = true;
+  // bool flag = true;
 
-  String firsthalf;
-  String secondhalf;
-  var _text =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  // String firsthalf;
+  // String secondhalf;
+  // var _text =
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
   @override
   void initState() {
@@ -40,13 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     });
     // Expanding the text read more and read less;
-    if (_text.length > 150) {
-      firsthalf = _text.substring(0, 150);
-      secondhalf = _text.substring(150, _text.length);
-    } else {
-      firsthalf = _text;
-      secondhalf = "";
-    }
+    // if (_text.length > 150) {
+    //   firsthalf = _text.substring(0, 150);
+    //   secondhalf = _text.substring(150, _text.length);
+    // } else {
+    //   firsthalf = _text;
+    //   secondhalf = "";
+    // }
     super.initState();
   }
 
@@ -61,6 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      // floatingActionButton: FloatingActionButton.extended(
+      //   backgroundColor: Colors.black,
+      //   onPressed: () {},
+      //   label: Text("Filter"),
+      // ),
       body: RefreshIndicator(
         onRefresh: onRefresh,
         child: Scrollbar(
@@ -98,6 +103,27 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          Material(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(10),
+                              onTap: () {},
+                              child: Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Text(
+                                    "OPEN SOURCE",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10),
                             child: Container(
@@ -206,14 +232,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   onPressed: () {},
                                 ),
                                 Expanded(child: Container()),
-                                Personaprofile(
-                                  images: [
-                                    "https://images.unsplash.com/photo-1458071103673-6a6e4c4a3413?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-                                    "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80",
-                                    "https://images.unsplash.com/photo-1470406852800-b97e5d92e2aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-                                  ],
-                                  totalCount: 10,
-                                ),
+                                RaisedButton(
+                                  color: Colors.blueAccent,
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Apply",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                           ),

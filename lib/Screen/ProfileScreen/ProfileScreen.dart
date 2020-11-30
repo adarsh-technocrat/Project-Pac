@@ -47,222 +47,225 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Scrollbar(
-        child: SingleChildScrollView(
-          // this one stays at the back
+      body: SafeArea(
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            // this one stays at the back
 
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  CachedImage(
-                    userModel?.profilePhoto != null
-                        ? userModel.profilePhoto
-                        : UniversalVariables.noImageAvailable,
-                    isRound: true,
-                    radius: 60,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, bottom: 5),
-                          child: Text(
-                            userModel?.name != null
-                                ? userModel.name
-                                : "Loading...",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    CachedImage(
+                      userModel?.profilePhoto != null
+                          ? userModel.profilePhoto
+                          : UniversalVariables.noImageAvailable,
+                      isRound: true,
+                      radius: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, bottom: 5),
+                            child: Text(
+                              userModel?.name != null
+                                  ? userModel.name
+                                  : "Loading...",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, bottom: 5),
+                            child: Text(
+                              userModel?.email != null
+                                  ? userModel.email
+                                  : "Loading...",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: OutlineButton(
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.home_work_rounded,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10, bottom: 5),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Text(
-                            userModel?.email != null
-                                ? userModel.email
-                                : "Loading...",
+                            "Working from home",
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 12,
                             ),
                           ),
                         ),
                       ],
                     ),
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: OutlineButton(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.home_work_rounded,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text(
-                          "Working from home",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                          ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5, left: 20, right: 20),
+                  child: Text(
+                    "Technology is a passion of mine and I enjoy nothing more than learning the trends that technology is taking in order to work more efficiently and see progress",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    color: Color(0xffFAFBFC),
+                    onPressed: () {},
+                    child: Center(
+                      child: Text(
+                        "Edit profile",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5, left: 20, right: 20),
-                child: Text(
-                  "Technology is a passion of mine and I enjoy nothing more than learning the trends that technology is taking in order to work more efficiently and see progress",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  color: Color(0xffFAFBFC),
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      "Edit profile",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Material(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Color(0xff122027),
-                  child: InkWell(
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Material(
                     borderRadius: BorderRadius.circular(12),
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Text(
-                              "Most Used Language",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                    color: Color(0xff122027),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Text(
+                                "Most Used Language",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                          Flexible(
-                            child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 1,
-                                itemBuilder:
-                                    (BuildContext context, int index) =>
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 5,
-                                            left: 20,
-                                            right: 10,
-                                          ),
-                                          child: Container(
-                                            margin: EdgeInsets.only(bottom: 20),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Dart",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                            Flexible(
+                              child: ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: 1,
+                                  itemBuilder: (BuildContext context,
+                                          int index) =>
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 5,
+                                          left: 20,
+                                          right: 10,
+                                        ),
+                                        child: Container(
+                                          margin: EdgeInsets.only(bottom: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "Dart",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    Flexible(
-                                                      child:
-                                                          new LinearPercentIndicator(
-                                                        lineHeight: 8.0,
-                                                        animation: true,
-                                                        animationDuration: 2500,
-                                                        percent: 0.73,
-                                                        backgroundColor:
-                                                            Colors.white,
-                                                        progressColor:
-                                                            Color(0xff48B5AB),
-                                                      ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Flexible(
+                                                    child:
+                                                        new LinearPercentIndicator(
+                                                      lineHeight: 8.0,
+                                                      animation: true,
+                                                      animationDuration: 2500,
+                                                      percent: 0.73,
+                                                      backgroundColor:
+                                                          Colors.white,
+                                                      progressColor:
+                                                          Color(0xff48B5AB),
                                                     ),
-                                                    Text(
-                                                      "73.12%",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                      ),
+                                                  ),
+                                                  Text(
+                                                    "73.12%",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
                                                     ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
                                           ),
-                                        )),
-                          ),
-                        ],
+                                        ),
+                                      )),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Material(
-                color: Colors.white,
-                elevation: 0.0,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 32.0, left: 8.0, right: 8.0),
-                  child: innerNestedTabs(),
+                Material(
+                  color: Colors.white,
+                  elevation: 0.0,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 32.0, left: 8.0, right: 8.0),
+                    child: innerNestedTabs(),
+                  ),
                 ),
-              ),
-              tabbody(),
-              // Container(
-              //   color: Colors.white,
-              //   width: MediaQuery.of(context).size.width,
-              //   height: MediaQuery.of(context).size.height / 1.55,
-              //   child: TabBarView(
-              //     controller: _tabController,
-              //     children: [
-              //       OverView(context: context),
-              //       Container(
-              //         height: 200.0,
-              //         child: Center(child: Text('Projets')),
-              //       ),
-              //     ],
-              //   ),
-              // )
-            ],
+                tabbody(),
+                // Container(
+                //   color: Colors.white,
+                //   width: MediaQuery.of(context).size.width,
+                //   height: MediaQuery.of(context).size.height / 1.55,
+                //   child: TabBarView(
+                //     controller: _tabController,
+                //     children: [
+                //       OverView(context: context),
+                //       Container(
+                //         height: 200.0,
+                //         child: Center(child: Text('Projets')),
+                //       ),
+                //     ],
+                //   ),
+                // )
+              ],
+            ),
           ),
         ),
       ),
