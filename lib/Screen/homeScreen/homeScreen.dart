@@ -10,6 +10,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:async';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -234,7 +235,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Expanded(child: Container()),
                                 RaisedButton(
                                   color: Colors.blueAccent,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // Navigator.push(
+                                    //     context,
+                                    //     CupertinoPageRout(
+                                    //         builder: (context) =>
+                                    //             ProjectDetailpage()));
+                                  },
                                   child: Text(
                                     "Apply",
                                     style: TextStyle(
