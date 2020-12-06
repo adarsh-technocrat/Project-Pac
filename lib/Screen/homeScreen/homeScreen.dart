@@ -1,5 +1,6 @@
 import 'package:evento/Screen/ProfileScreen/personaProfile.dart';
 import 'package:evento/Screen/ProfileScreen/projectUserTechnologyModel.dart';
+import 'package:evento/Screen/homeScreen/projectDetailPage.dart';
 import 'package:flutter/material.dart';
 import 'package:evento/Components/cachedImage.dart';
 import 'package:evento/Database/FirebaseRepo.dart';
@@ -236,11 +237,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 RaisedButton(
                                   color: Colors.blueAccent,
                                   onPressed: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     CupertinoPageRout(
-                                    //         builder: (context) =>
-                                    //             ProjectDetailpage()));
+                                    Navigator.push(
+                                        context,
+                                        CupertinoPageRoute(
+                                            builder: (context) =>
+                                                ProjectDetailpage()));
                                   },
                                   child: Text(
                                     "Apply",
