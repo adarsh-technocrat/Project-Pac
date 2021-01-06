@@ -1,4 +1,4 @@
-# evento
+# Project Pac
 
 A new Flutter project.
 
